@@ -11,11 +11,11 @@
 
 This is a complete website along with the features below
 
-=> Candidate Login
-=> Candidate Profile
-=> Candidate Complete CV like Add, Edit, Delete Personal Data like name, address and bio. Add Skills, Professional Experience, Education, Training just like Single page application performance with axios and javascript.
-=> Company login with employee different kinds of role to post a job, edit or delete.
-=> Main site owner login to see all the activity of companies, cnadidates and management of the site
+=> Candidate Login <br/>
+=> Candidate Profile <br/>
+=> Candidate Complete CV like Add, Edit, Delete Personal Data like name, address and bio. Add Skills, Professional Experiences, Educations, Trainings just like Single page application performance while CURD activity with axios and javascript. <br/>
+=> Company login with employee different kinds of role to post a job, edit or delete. <br/>
+=> Main site owner login to see all the activity of companies, cnadidates and management of the site. <br/>
 
 
 
