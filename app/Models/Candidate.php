@@ -21,4 +21,40 @@ class Candidate extends Model
     {
         return $this->hasOne(CandidateProfile::class);
     }
+
+    public function education()
+    {
+        return $this->hasMany(CandidateEducation::class);
+    }
+
+    public function experience()
+    {
+        return $this->hasMany(CandidateExperience::class);
+    }
+
+    public function training()
+    {
+        return $this->hasMany(CandidateTraining::class);
+    }
+
+    public function skill()
+    {
+        return $this->hasOne(CandidateOther::class);
+    }
+
+    // public function job()
+    // {
+    //     return $this->hasMany(CompanyJob::class);
+    // }
+
+    public function company_job()
+    {
+        return $this->belongsToMany(CompanyJob::class);
+    }
+
+    public function salary()
+    {
+        return $this->belongsToMany(CompanyCandidateSalary::class, 'candidate_id', 'id');
+    }
+
 }

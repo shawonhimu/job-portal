@@ -6,20 +6,20 @@
                 <div class="row alignItems mobileColReverse">
                     <div class="col-lg-6">
                         <div class="personalDetails px-lg-4 mb-3 mb-lg-0">
-                            <div class="jobTitleArea pcViewOnly">
-                                <h1 class="jobTitle">Badhon</h1>
-                                <span>A Blood Donars Hub, BSMRSTU</span>
+                            <div class="badhanTitleArea pcViewOnly">
+                                <h2 class="border px-4 py-3">Company Login</h2>
+                                <h3 class="jobTitle">Job Pulse</h3>
+                                <span>Find Your Job</span>
                             </div>
                             <hr />
-                            <h2 class="display-md-6 text-uppercase lspaceing-1">Donate Blood, Save Life</h2>
-                            <h6 class="text-justify lspaceing-2">If you save a life, You might save the humanity</h6>
+                            <h2 class="display-md-6 text-uppercase lspaceing-4">Be creative, find your destination
+                            </h2>
+                            <h6 class="text-justify lspaceing-1">If you can't earn from your skill, your skill will
+                                be
+                                treated as valueless. Join Now</h6>
                             <!--
-          <h5 class="text-uppercase my-4">"Today you donate blood, tomorrow you may need blood. So, Don't be late to help someone. Let's work for humanity"</h5>		 -->
+              <h5 class="text-uppercase my-4">"Today you donate blood, tomorrow you may need blood. So, Don't be late to help someone. Let's work for humanity"</h5>		 -->
 
-                            <hr />
-                            <p>Do you want to donate or collect blood for yourself or your relative ? Then please create
-                                an account and login. You will find our donar's profile as well as you will be our pride
-                                donar for future. So be fast to work for humanity.</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -38,6 +38,7 @@
 
                                 <div id="adminForm">
                                     <form class="" id="loginForm" onsubmit="return false;">
+                                        <h4>Login as Company</h4>
                                         {{-- @csrf --}}
                                         <div class="input-group flex-nowrap mt-3">
                                             <span class="input-group-text" id="addon-wrapping"><i

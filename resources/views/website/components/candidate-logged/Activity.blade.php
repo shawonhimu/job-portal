@@ -16,11 +16,11 @@
                     <h4 class="mt-3">Your profile has complete 75%</h4>
                     <h4 class="mt-3">Update Your Profile Now</h4>
                     <div>
-                        <a class="btn myBtn" href="#">Activity</a>
-                        <a class="btn category-btn" href="#">Profile</a>
-                        <a class="btn category-btn" href="#">Edit Profile</a>
-                        <a class="btn category-btn" href="#">Applied Jobs</a>
-                        <a class="btn category-btn" href="#">Settings</a>
+                        <a class="btn myBtn" href="{{ url('/activity') }}">Activity</a>
+                        <a class="btn category-btn" href="{{ url('/profile') }}">Profile</a>
+                        <a class="btn category-btn" href="{{ url('/edit-profile') }}">Edit Profile</a>
+                        <a class="btn category-btn" href="{{ url('/applied-job') }}">Applied Jobs</a>
+                        <a class="btn category-btn" href="{{ url('/setting') }}">Settings</a>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <div class="col-lg-4">
                 <div class="myProfileCard">
                     <div class="text-center">
-                        <h4>Applied Jobs = 10</h4>
+                        <h4>Applied Jobs = {{ $numOfAppliedJobs }}</h4>
                     </div>
                 </div>
             </div>

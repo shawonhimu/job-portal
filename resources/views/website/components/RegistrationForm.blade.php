@@ -14,7 +14,7 @@
                                     <div class="jobTtlResgisArea">
                                         {{-- <h3 class="jobTitleResgis">Job Pulse</h3> --}}
                                         <span>Find your job now</span>
-                                        <h3>Create Account Now</h3>
+                                        <h3>Create Account as Candidate</h3>
                                     </div>
                                 </div>
                                 <div id="">

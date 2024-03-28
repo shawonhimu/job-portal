@@ -17,14 +17,16 @@
                                 <span>Find Your Job</span>
                             </div>
                             <h2 class="display-md-6 text-uppercase lspaceing-4">Be creative, find your destination</h2>
-                            <h6 class="text-justify lspaceing-1">If you save a life, You might save the humanity</h6>
-                            <p>To find or donate blood create your account. Join Now</p>
+                            <h6 class="text-justify lspaceing-1">If you can't earn from your skill, your skill will be
+                                treated as valueless. Join Now</h6>
 
-                            <a href="./registration.html" class="btn myBtn btnCrtFnSz px-5 py-2 my-3">Create A New
+                            <a href="{{ url('candidate-registration') }}"
+                                class="btn myBtn btnCrtFnSz px-5 py-2 my-3">Create A New
                                 Account</a>
                             <div>
                                 <p>If you already have any account please login to join</p>
-                                <a href="./login.html" class="btn myBtn px-5 py-2 my-2">Login</a>
+                                <button class="btn myBtn my-3 px-5" data-bs-toggle="modal"
+                                    data-bs-target="#loginAsModal">Login</button>
                             </div>
                         </div>
                     </div>

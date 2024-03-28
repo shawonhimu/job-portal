@@ -25,9 +25,20 @@ class CompanyJob extends Model
     {
         return $this->belongsTo(Company::class);
     }
+
     public function category()
     {
         return $this->belongsTo(JobCategory::class);
+    }
+
+    // public function company_job()
+    // {
+    //     return $this->belongsTo(CandidateApplicationCompanyJob::class);
+    // }
+
+    public function candidate()
+    {
+        return $this->belongsToMany(Candidate::class);
     }
 
 }

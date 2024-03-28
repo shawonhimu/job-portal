@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Helper\ResponseHelper;
-use App\Models\CandidateApplicationCompanyJob;
+use App\Models\CandidateCompanyJob;
 use App\Models\CandidateProfile;
+use App\Models\CompanyCandidateSalary;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -31,6 +32,15 @@ class CandidateApplicationCompanyJobController extends Controller
         return view('ProfileDetailForm');
     }
 
+    //==============  Form To add  profile data ===================//
+
+    public function numberOfAppliedJob(Request $request)
+    {
+        $candidate_id = $request->header('id');
+        $count = CompanyCandidateSalary::where('candidate_id', $candidate_id)->count();
+        return view('website.pages.ActivityPage', [ 'numOfAppliedJobs' => $count ]);
+    }
+
     //==============  To Create or add profile details ===================//
 
     public function store(Request $request)
@@ -39,20 +49,28 @@ class CandidateApplicationCompanyJobController extends Controller
             // from login cookie
 
             $candidate_id = $request->header('id');
+            if (!$candidate_id) {
+                return redirect('candidate-login');
+            } else {
 
-            //from input form data
-            $companyJobID = $request->input('companyJobID');
+                //from input form data
+                $companyJobID = $request->input('jobID');
+                $currentSalary = $request->input('currentSalary');
+                $expectedSalary = $request->input('expectedSalary');
 
-            $data = CandidateApplicationCompanyJob::updateOrCreate(
-                [
-                    'candidate_id' => $candidate_id,
-                    'company_job_id' => $companyJobID,
-                 ],
-                [
-                    'candidate_id' => $candidate_id,
-                    'company_job_id' => $companyJobID,
-                 ]);
-            return ResponseHelper::Out('success', $data, 200);
+                $data = CompanyCandidateSalary::updateOrCreate(
+                    [
+                        'candidate_id' => $candidate_id,
+                        'company_job_id' => $companyJobID,
+                     ],
+                    [
+                        'candidate_id' => $candidate_id,
+                        'company_job_id' => $companyJobID,
+                        'current_salary' => $currentSalary,
+                        'expected_salary' => $expectedSalary,
+                     ]);
+                return redirect()->back()->with('success', 'Job appication successfully');
+            }
 
         } catch (Exception $e) {
             return ResponseHelper::Out('fail', "Error ! Something went wrong", 200);
@@ -92,7 +110,7 @@ class CandidateApplicationCompanyJobController extends Controller
     {
         try {
             $candidate_id = $request->header('candidate_id');
-            CandidateApplicationCompanyJob::where('id', '=', $id)->where('candidate_id', '=', $candidate_id)->delete();
+            CandidateCompanyJob::where('id', '=', $id)->where('candidate_id', '=', $candidate_id)->delete();
             return ResponseHelper::Out('success', 'Your profile details has deleted successfully', 200);
         } catch (Exception $e) {
             return ResponseHelper::Out('fail', "Error ! Something went wrong", 200);

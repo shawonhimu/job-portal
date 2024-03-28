@@ -90,7 +90,7 @@
                             </div> --}}
                         </div>
                         <div class="text-center">
-                            <a class="btn myBtn my-3" href="#">View All Jobs</a>
+                            <a class="btn myBtn my-3" href="{{ url('job') }}">View All Jobs</a>
                         </div>
                     </div>
                 </div>

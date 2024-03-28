@@ -48,8 +48,10 @@
                         </div>
                     @else
                         <div>
-                            <a href="{{ url('candidate-login') }}" class="btn myBtn">Login</a>
-                            <a href="{{ url('candidate-registration') }}" class="btn myBtn">Registration</a>
+                            <button class="btn myBtn" data-bs-toggle="modal"
+                                data-bs-target="#loginAsModal">Login</button>
+                            <button class="btn myBtn" data-bs-toggle="modal"
+                                data-bs-target="#registrationAsModal">Registration</button>
                         </div>
                     @endif
                 </div>
@@ -57,3 +59,53 @@
         </nav>
     </div>
 </section>
+
+{{-- Login as company or candidate modal --}}
+
+<div class="modal fade" id="loginAsModal" tabindex="-1" aria-labelledby="loginAsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="text-center">
+                    <div class="d-flex justify-content-between">
+                        <div></div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <h4>Login as</h4>
+                    <div class="d-flex justify-content-center mt-4">
+                        <a href="{{ url('candidate-login') }}" type="button" class="btn btn-danger mx-3">Candidate</a>
+                        <a href="{{ url('company-login') }}" type="button" class="btn btn-danger">Company</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{-- Registration as company or candidate modal --}}
+
+<div class="modal fade" id="registrationAsModal" tabindex="-1" aria-labelledby="registrationAsModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="text-center">
+                    <div class="d-flex justify-content-between">
+                        <div></div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <h4>Registration or Create Account as</h4>
+                    <div class="d-flex justify-content-center mt-4">
+                        <a href="{{ url('candidate-registration') }}" type="button"
+                            class="btn myBtn mx-3">Candidate</a>
+                        <a href="{{ url('company-registration') }}" type="button" class="btn myBtn">Company</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

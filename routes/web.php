@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidateApplicationCompanyJobController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CandidateEducationController;
 use App\Http\Controllers\CandidateExperienceController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CompanyEmployeeController;
 use App\Http\Controllers\CompanyJobController;
 use App\Http\Controllers\CompanyPageViewController;
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\WebJobController;
 use App\Http\Controllers\WebPageController;
 use App\Http\Middleware\CompanyAuthMiddleware;
@@ -40,7 +42,7 @@ Route::get('profile-photo', [ WebPageController::class, 'getCandidateOnlyPhoto' 
 
 //===========       After login pages   ==============//
 
-Route::get('/activity', [ WebPageController::class, 'activityPage' ])->name('LoginPage');
+// Route::get('/activity', [ WebPageController::class, 'activityPage' ])->name('LoginPage');
 Route::get('/profile', [ WebPageController::class, 'profilePage' ])->name('ProfilePage');
 Route::get('/edit-profile', [ WebPageController::class, 'editProfilePage' ])->name('EditProfilePage');
 
@@ -209,3 +211,11 @@ Route::get('/new-job', [ CompanyJobController::class, 'create' ])->name('AddJobP
 Route::post('/new-job', [ CompanyJobController::class, 'store' ])->middleware([ EmployeeAuthMiddleware::class ]);
 Route::get('/edit-job/{id}', [ CompanyJobController::class, 'edit' ])->middleware([ EmployeeAuthMiddleware::class ]);
 Route::post('/edit-job', [ CompanyJobController::class, 'update' ])->middleware([ EmployeeAuthMiddleware::class ]);
+
+//Job Applying Routes
+
+Route::post('job-application', [ CandidateApplicationCompanyJobController::class, 'store' ])->middleware([ JWTTokenAuthenticate::class ]);
+Route::get('/activity', [ CandidateApplicationCompanyJobController::class, 'numberOfAppliedJob' ])->middleware([ JWTTokenAuthenticate::class ]);
+
+Route::get('/applied-job', [ JobApplicationController::class, 'candidateAppliedJobList' ])->middleware([ JWTTokenAuthenticate::class ]);
+Route::get('/applied-job-details/{id}', [ JobApplicationController::class, 'candidateAppliedJobDetails' ])->middleware([ JWTTokenAuthenticate::class ]);

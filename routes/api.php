@@ -11,6 +11,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CompanyEmployeeController;
 use App\Http\Controllers\CompanyJobController;
 use App\Http\Controllers\CompanyPageViewController;
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\WebPageController;
 use App\Http\Middleware\CompanyAuthMiddleware;
 use App\Http\Middleware\EmployeeAuthMiddleware;
@@ -142,3 +143,9 @@ Route::get('/employee-home', [ CompanyJobController::class, 'employeeHome' ])->n
 
 Route::get('/new-job', [ CompanyJobController::class, 'create' ])->name('AddJobPage')->middleware([ EmployeeAuthMiddleware::class ]);
 Route::post('/new-job', [ CompanyJobController::class, 'store' ])->middleware([ EmployeeAuthMiddleware::class ]);
+
+//Get candidate for HR
+Route::get('/view-profile', [ JobApplicationController::class, 'appliedCandidateListForHR' ]);
+Route::get('/applied-job', [ JobApplicationController::class, 'candidateAppliedJobList' ])->middleware([ JWTTokenAuthenticate::class ]);
+Route::get('/expected-salary', [ JobApplicationController::class, 'candidateExpectedSalary' ]);
+Route::get('/applied-job-details/{id}', [ JobApplicationController::class, 'candidateAppliedJobDetails' ])->middleware([ JWTTokenAuthenticate::class ]);
